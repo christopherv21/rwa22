@@ -61,12 +61,18 @@ export default function Page() {
 
     let email = data.get('email')
 		let pass = data.get('pass')
+    let dob = data.get('dob')
+    let firstname = data.get('firstname')
+    let surname = data.get('surname')
 
     console.log("Sent email:" + email)
     console.log("Sent pass:" + pass)
+    console.log("Sent dob:" + dob)
+    console.log("Sent firstname:" + firstname)
+    console.log("Sent surname:" + surname)
 
 
-    runDBCallAsync(`http://localhost:3000/api/login?email=${email}&pass=${pass}`)
+    runDBCallAsync(`http://localhost:3000/api/register?email=${email}&pass=${pass}&dob=${dob}&firstname=${firstname}&surname=${surname}`)
 
 
 
@@ -106,7 +112,7 @@ export default function Page() {
           
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+       Register
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
@@ -129,6 +135,55 @@ export default function Page() {
             id="pass"
             autoComplete="current-password"
           />
+
+
+<TextField
+            margin="normal"
+            required
+            fullWidth
+            name="dob"
+            label="dob"
+            type=""
+            id="dob"
+            autoComplete="current-password"
+          />
+
+<TextField
+            margin="normal"
+            required
+            fullWidth
+            name="firstname"
+            label="firstname"
+            type=""
+            id="firstname"
+            autoComplete="current-password"
+          />
+
+<TextField
+            margin="normal"
+            required
+            fullWidth
+            name="surname"
+            label="surname"
+            type=""
+            id="surname"
+            autoComplete="current-password"
+          />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
