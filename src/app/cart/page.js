@@ -21,11 +21,11 @@ export default function Page() {
 //
 function putInCart(id){
 console.log("removing fromcart: " + id)
-fetch("http://localhost:3000/api/remove?id="+id);
+fetch("api/remove?id="+id);
 }
 const [data, setData] = useState(null)
 useEffect(() => {
-fetch('http://localhost:3000/api/getCart')
+fetch('api/getCart')
 .then((res) => res.json())
 .then((data) => {
 setData(data)
